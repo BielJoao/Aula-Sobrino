@@ -5,11 +5,20 @@ const p2 = document.getElementById("p2");
 const btnCalcular = document.getElementById("btnCalcular");
 const saida = document.getElementById("saida");
 
-//parseFloat(Vaariavel.value) OU Number(Variavel.value) OU +Variavel.value
+//parseFloat(Vaariavel.value) OU Number(Variavel.value) OU (+)Variavel.value
 
-function calcularMedia() {
-        let media = (Number(p1.value)+2*Number(p2.value))/3;
-        saida.textContent = media.toFixed(2);
-}
+function getP1(){
+    return +p1.value;
+};
+function getP2(){
+    return +p2.value;
+};
+function calcularMedia(p1,p2) {
+        let media = (p1+2*p2)/3;
+        return media.toFixed(2);
+};
+function ValidaNotas(){
+        saida.textContent = calcularMedia(getP1(),getP2());
+};
 
-btnCalcular.addEventListener("click", calcularMedia);
+btnCalcular.addEventListener("click", ValidaNotas);
