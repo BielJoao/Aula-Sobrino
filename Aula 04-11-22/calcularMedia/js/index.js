@@ -17,8 +17,16 @@ function calcularMedia(p1,p2) {
         let media = (p1+2*p2)/3;
         return media.toFixed(2);
 };
-function ValidaNotas(){
+function onclick(){
         saida.textContent = calcularMedia(getP1(),getP2());
 };
+function onChangeP1() {
+    saida.textContent = "O valor da P1 mudou";
+}
+function onChangeP2() {
+    saida.textContent = "O valor da P2 mudou";
+}
+btnCalcular.addEventListener("click", onclick);
 
-btnCalcular.addEventListener("click", ValidaNotas);
+p1.addEventListener("change", onChangeP1);
+p2.addEventListener("change", onChangeP2);
