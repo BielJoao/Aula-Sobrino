@@ -17,16 +17,27 @@ function calcularMedia(p1,p2) {
         let media = (p1+2*p2)/3;
         return media.toFixed(2);
 };
+// return (nota>=0 && nota<=10) ? true : false;
+function validarNota(nota){
+        if (nota>= 0 && nota <=10){
+            return true;
+        } else{
+            return false;
+            }
+}
 function onclick(){
         saida.textContent = calcularMedia(getP1(),getP2());
 };
-function onChangeP1() {
-    saida.textContent = "O valor da P1 mudou";
-}
-function onChangeP2() {
-    saida.textContent = "O valor da P2 mudou";
+function onChange() {
+    if(validarNota(this.value)== false){
+        this.value="";
+        this.focus();
+    }
+    
+    
+    //saida.textContent = validarNota(this.value);
 }
 btnCalcular.addEventListener("click", onclick);
 
-p1.addEventListener("change", onChangeP1);
-p2.addEventListener("change", onChangeP2);
+p1.addEventListener("change", onChange);
+p2.addEventListener("change", onChange);
